@@ -45,14 +45,18 @@ namespace DTOExample.Controllers
         // PUT: api/Departments/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutDepartment(int id, Department department)
+        public async Task<IActionResult> PutDepartment(int id, DepartmentDTO department)
         {
             if (id != department.DeptId)
             {
                 return BadRequest();
             }
-
-            _context.Entry(department).State = EntityState.Modified;
+            Department originalModel = new Department()
+            {
+                DeptId = department.DeptId,
+                DeptName = department.DeptName
+            };
+            _context.Entry(originalModel).State = EntityState.Modified;
 
             try
             {

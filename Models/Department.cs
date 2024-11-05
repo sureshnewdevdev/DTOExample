@@ -11,16 +11,3 @@ public partial class Department
 
     public virtual ICollection<Employee>? Employees { get; set; } = new List<Employee>();
 }
-
-//{
-//  "deptId": 0,
-//  "deptName": "string",
-//  "employees": [
-//    {
-//      "empId": 0,
-//      "empName": "string",
-//      "deptId": 0,
-//      "dept": "string"
-//    }
-//  ]
-//}
